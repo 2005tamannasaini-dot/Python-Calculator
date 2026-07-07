@@ -3,12 +3,23 @@
 print(" ======== CALCULATOR.🥰 ========")
 
 while True:
-    operation = input("Enter the operation(+,-, *,/,%,power, square,):")
+    operation = input("Enter the operation(+,-, *,/,%,power, square, cube,):")
+
+    valid_operation = ["+","-", "*","/","%","power", "square", "cube"]
+
+    if operation  not in valid_operation:
+        print("Invalid operation:, Please choose the Right operation")
+        continue
 
     try:
+       
         if operation == "square":
             num1 = float(input("Enter first number:"))
             print ("Result:", num1 ** 2)
+
+        elif operation == "cube":
+            num1 = float(input("Enter first number:"))
+            print("Result:", num1**3)
 
         else:
             num1 = float(input("Enter first number:"))
@@ -28,15 +39,15 @@ while True:
                 if num2 != 0:
                     print("Result:", num1/num2)
                 else:
-                    print("cannot divide by zero.")
+                    print("Cannot divide by zero.")
 
-            elif operation == "%":
+            elif  operation == "%":
                 if num2 != 0:
                     print("Result:", num1%num2)
                 else:
-                    print("cannot divide by zero.")
+                    print("Cannot divide by zero.")
                 
-            elif operation == "power":
+            elif  operation == "power":
                 print("Result:", num1 ** num2)
 
             else:
@@ -45,11 +56,19 @@ while True:
     except ValueError:
         print("Invalid input! Please enter number only.")        
 
-    choice = input("continue?(yes/no):").lower()
+    while True:
+        choice = input("continue?(yes/no):").lower()
 
-    if choice == "no":
-        print("calculator closed.")
-        break        
+        if choice == "yes":
+            break
 
+        elif choice == "no":
+            print("calculator closed.")
+            exit()
+
+        else:
+            print("Invalid choice! Please enter only yes or no.")
+        
+        
 
         
